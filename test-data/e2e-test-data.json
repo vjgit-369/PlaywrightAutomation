@@ -1,0 +1,21 @@
+{
+    "testUsers": {
+        "defaultUser": {
+            "firstName": "John",
+            "lastName": "Doe",
+            "email": "john.doe.test@example.com",
+            "phone": "1234567890",
+            "occupation": "Student",
+            "password": "Test@123",
+            "confirmPassword": "Test@123"
+        }
+    },
+    "products": [
+        {
+            "name": "ADIDAS ORIGINAL",
+            "category": "shoes",
+            "price": 31500,
+            "description": "Adidas Original Running Shoes"
+        }
+    ]
+}

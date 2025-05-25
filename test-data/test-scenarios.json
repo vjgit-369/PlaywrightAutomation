@@ -1,0 +1,60 @@
+{
+    "testUsers": {
+        "defaultUser": {
+            "firstName": "John",
+            "lastName": "Doe",
+            "email": "john.doe.test@example.com",
+            "phone": "1234567890",
+            "occupation": "Student",
+            "password": "Test@123",
+            "confirmPassword": "Test@123"
+        },
+        "admin": {
+            "email": "admin@example.com",
+            "password": "Admin@123"
+        },
+        "customer": {
+            "email": "customer@example.com",
+            "password": "Customer@123"
+        }
+    },
+    "products": [
+        {
+            "name": "ADIDAS ORIGINAL",
+            "category": "shoes",
+            "price": 31500,
+            "description": "Adidas Original Running Shoes"
+        },
+        {
+            "name": "ZARA COAT 3",
+            "category": "clothing",
+            "price": 31500,
+            "description": "Zara Winter Collection Coat"
+        },
+        {
+            "name": "IPHONE 13 PRO",
+            "category": "electronics",
+            "price": 231500,
+            "description": "Apple iPhone 13 Pro Max"
+        }
+    ],
+    "testUsers": {
+        "admin": {
+            "email": "admin@example.com",
+            "password": "Admin@123"
+        },
+        "customer": {
+            "email": "customer@example.com",
+            "password": "Customer@123"
+        }
+    },
+    "paymentMethods": {
+        "creditCard": {
+            "type": "VISA",
+            "installments": [3, 6, 12]
+        },
+        "netBanking": {
+            "banks": ["HDFC", "ICICI", "SBI"]
+        }
+    }
+}

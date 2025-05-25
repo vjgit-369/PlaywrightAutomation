@@ -1,0 +1,666 @@
+[
+  {
+    "description": "  As a new customer\n  I want to register, login, and complete a purchase\n  So that I can buy products from the e-commerce site",
+    "elements": [
+      {
+        "description": "",
+        "id": "e2e-shopping-flow;complete-shopping-flow-with-different-products",
+        "keyword": "Scenario Outline",
+        "line": 25,
+        "name": "Complete shopping flow with different products",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 690526799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 9,
+            "name": "I am on the login page",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:4"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 5013826000,
+              "error_message": "Error: function timed out, ensure the promise resolves within 5000 milliseconds\n    at Timeout.<anonymous> (C:\\PlaywrightAutomation\\node_modules\\@cucumber\\cucumber\\lib\\time.js:64:20)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 10,
+            "name": "I navigate to the registration page",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:15"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "I register as a new user",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:26"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "I login with the registered credentials",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:55"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "I should be on the products page",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:71"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 14,
+            "name": "I add \"ADIDAS ORIGINAL\" to the cart",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:83"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "I navigate to the cart",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:94"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "the product \"ADIDAS ORIGINAL\" should be in the cart",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:105"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 17,
+            "name": "I proceed to checkout",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:115"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "I enter shipping details for a random country",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:126"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "I place the order",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:150"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 20,
+            "name": "I should see the order confirmation",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:161"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 21,
+            "name": "I should capture the order confirmation screenshot",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:174"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "failed",
+              "duration": 5001752300,
+              "error_message": "Error: function timed out, ensure the promise resolves within 5000 milliseconds\n    at Timeout.<anonymous> (C:\\PlaywrightAutomation\\node_modules\\@cucumber\\cucumber\\lib\\time.js:64:20)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@shopping",
+            "line": 1
+          },
+          {
+            "name": "@regression",
+            "line": 7
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "e2e-shopping-flow;complete-shopping-flow-with-different-products",
+        "keyword": "Scenario Outline",
+        "line": 26,
+        "name": "Complete shopping flow with different products",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 556170099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 9,
+            "name": "I am on the login page",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:4"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 5006672199,
+              "error_message": "Error: function timed out, ensure the promise resolves within 5000 milliseconds\n    at Timeout.<anonymous> (C:\\PlaywrightAutomation\\node_modules\\@cucumber\\cucumber\\lib\\time.js:64:20)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 10,
+            "name": "I navigate to the registration page",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:15"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "I register as a new user",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:26"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "I login with the registered credentials",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:55"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "I should be on the products page",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:71"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 14,
+            "name": "I add \"ZARA COAT 3\" to the cart",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:83"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "I navigate to the cart",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:94"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "the product \"ZARA COAT 3\" should be in the cart",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:105"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 17,
+            "name": "I proceed to checkout",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:115"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "I enter shipping details for a random country",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:126"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "I place the order",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:150"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 20,
+            "name": "I should see the order confirmation",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:161"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 21,
+            "name": "I should capture the order confirmation screenshot",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:174"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "failed",
+              "duration": 5001087999,
+              "error_message": "Error: function timed out, ensure the promise resolves within 5000 milliseconds\n    at Timeout.<anonymous> (C:\\PlaywrightAutomation\\node_modules\\@cucumber\\cucumber\\lib\\time.js:64:20)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@shopping",
+            "line": 1
+          },
+          {
+            "name": "@regression",
+            "line": 7
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "e2e-shopping-flow;quick-purchase-with-random-product",
+        "keyword": "Scenario",
+        "line": 29,
+        "name": "Quick purchase with random product",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 647535200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 30,
+            "name": "I am on the login page",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:4"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 5010805599,
+              "error_message": "Error: function timed out, ensure the promise resolves within 5000 milliseconds\n    at Timeout.<anonymous> (C:\\PlaywrightAutomation\\node_modules\\@cucumber\\cucumber\\lib\\time.js:64:20)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 31,
+            "name": "I navigate to the registration page",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:15"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "firstName",
+                      "lastName",
+                      "email",
+                      "phone",
+                      "occupation",
+                      "password",
+                      "confirmPassword"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "John",
+                      "Doe",
+                      "john.doe{timestamp}@test.com",
+                      "1234567890",
+                      "Student",
+                      "Test@123",
+                      "Test@123"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "And ",
+            "line": 32,
+            "name": "I register with the following details:",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:39"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 35,
+            "name": "I login with the registered credentials",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:55"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 36,
+            "name": "I should be on the products page",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:71"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 37,
+            "name": "I add \"ADIDAS ORIGINAL\" to the cart",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:83"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 38,
+            "name": "I navigate to the cart",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:94"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 39,
+            "name": "the product \"ADIDAS ORIGINAL\" should be in the cart",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:105"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 40,
+            "name": "I proceed to checkout",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:115"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 41,
+            "name": "I enter shipping information for \"ind\"",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:139"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 42,
+            "name": "I place the order",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:150"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 43,
+            "name": "I should see the order confirmation",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:161"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 44,
+            "name": "I should capture the order confirmation screenshot",
+            "match": {
+              "location": "features\\steps_definitions\\e2e_shopping_steps.js:174"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "failed",
+              "duration": 5009784400,
+              "error_message": "Error: function timed out, ensure the promise resolves within 5000 milliseconds\n    at Timeout.<anonymous> (C:\\PlaywrightAutomation\\node_modules\\@cucumber\\cucumber\\lib\\time.js:64:20)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@shopping",
+            "line": 1
+          },
+          {
+            "name": "@smoke",
+            "line": 28
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "e2e-shopping-flow",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "E2E Shopping Flow",
+    "tags": [
+      {
+        "name": "@shopping",
+        "line": 1
+      }
+    ],
+    "uri": "features\\e2e_shopping.feature"
+  }
+]

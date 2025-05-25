@@ -1,0 +1,31 @@
+{
+  "name": "playwrightautomation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:cucumber": "cucumber-js --tags \"not @ignore\"",
+    "test:e2e": "cucumber-js features/e2e_shopping.feature",
+    "test:smoke": "cucumber-js --tags @smoke",
+    "test:regression": "cucumber-js --tags @regression",
+    "test:rerun": "cucumber-js @rerun.txt --profile rerun",
+    "test:parallel": "cucumber-js --parallel 2",
+    "report:generate": "node utils/report-generator.js",
+    "pretest:cucumber": "rimraf test-results/cucumber",
+    "posttest:cucumber": "npm run report:generate"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@cucumber/cucumber": "^11.3.0",
+    "@cucumber/pretty-formatter": "^1.0.1",
+    "@faker-js/faker": "^9.8.0",
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.14.1",
+    "@zerostep/playwright": "^0.1.5",
+    "cucumber-html-reporter": "^7.2.0",
+    "rimraf": "^6.0.1"
+  }
+}
