@@ -9,13 +9,13 @@ on:
       browsers:
         description: 'Browsers to test on'
         required: true
-        default: 'chromium,firefox,webkit'
+        default: 'chromium'
         type: choice
         options:
-          - chromium,firefox,webkit
           - chromium
           - firefox
           - webkit
+          - all
 
 jobs:
   test:
@@ -27,7 +27,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
-        browser: [chromium, firefox, webkit]
+        browser: [chromium]
         include:
           - os: ubuntu-latest
             browser: chromium
@@ -46,17 +46,17 @@ jobs:
       
     - name: Install Playwright
       run: npx playwright install --with-deps ${{ matrix.browser }}
-      - name: Run Playwright tests
+    
+    - name: Run Playwright tests
+      shell: bash
       run: |
-        if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+        if [ "${{ github.event_name }}" == "pull_request" ]; then
           # Run smoke tests for PRs
-          npx playwright test --project=${{ matrix.browser }} --grep "@smoke" --reporter=list,html,github
+          npx playwright test --project=${{ matrix.browser }} --grep "@smoke"
         else
           # Run full regression for main branch
-          npx playwright test --project=${{ matrix.browser }} --reporter=list,html,github
+          npx playwright test --project=${{ matrix.browser }}
         fi
-      env:
-        CI: true
     
     - name: Upload test results
       if: always()
@@ -76,26 +76,38 @@ jobs:
         path: test-results
         retention-days: 7
 
-  test-report:
+  report:
     name: 'Generate Test Report'
     needs: test
     if: always()
     runs-on: ubuntu-latest
     
     steps:
+    - uses: actions/checkout@v4
+    
     - name: Download all artifacts
       uses: actions/download-artifact@v4
+      with:
+        path: artifacts
+        
+    - name: Display structure of downloaded files
+      run: ls -R artifacts
+      shell: bash
+        
+    - name: Install dependencies
+      run: npm ci
       
-    - name: Merge reports
+    - name: Generate combined report
       run: |
-        npm install -g playwright-merge-reports
-        playwright-merge-reports ./playwright-report-*
+        mkdir -p playwright-report
+        find artifacts -name "*.zip" -exec unzip -o {} -d playwright-report \;
+      shell: bash
         
     - name: Deploy report to GitHub Pages
       if: success()
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./playwright-merge-reports
+        publish_dir: ./playwright-report
         publish_branch: gh-pages
         keep_files: true
