@@ -1,0 +1,101 @@
+name: E2E Tests
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+    inputs:
+      browsers:
+        description: 'Browsers to test on'
+        required: true
+        default: 'chromium,firefox,webkit'
+        type: choice
+        options:
+          - chromium,firefox,webkit
+          - chromium
+          - firefox
+          - webkit
+
+jobs:
+  test:
+    name: 'Tests on ${{ matrix.os }} with ${{ matrix.browser }}'
+    timeout-minutes: 60
+    runs-on: ${{ matrix.os }}
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        browser: [chromium, firefox, webkit]
+        include:
+          - os: ubuntu-latest
+            browser: chromium
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: lts/*
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Install Playwright
+      run: npx playwright install --with-deps ${{ matrix.browser }}
+      - name: Run Playwright tests
+      run: |
+        if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+          # Run smoke tests for PRs
+          npx playwright test --project=${{ matrix.browser }} --grep "@smoke" --reporter=list,html,github
+        else
+          # Run full regression for main branch
+          npx playwright test --project=${{ matrix.browser }} --reporter=list,html,github
+        fi
+      env:
+        CI: true
+    
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: playwright-report-${{ matrix.os }}-${{ matrix.browser }}
+        path: |
+          playwright-report/
+          test-results/
+        retention-days: 30
+        
+    - name: Upload screenshots on failure
+      if: failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-screenshots-${{ matrix.os }}-${{ matrix.browser }}
+        path: test-results
+        retention-days: 7
+
+  test-report:
+    name: 'Generate Test Report'
+    needs: test
+    if: always()
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Download all artifacts
+      uses: actions/download-artifact@v4
+      
+    - name: Merge reports
+      run: |
+        npm install -g playwright-merge-reports
+        playwright-merge-reports ./playwright-report-*
+        
+    - name: Deploy report to GitHub Pages
+      if: success()
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./playwright-merge-reports
+        publish_branch: gh-pages
+        keep_files: true

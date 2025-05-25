@@ -1,27 +1,9 @@
-const { test, expect } = require('@playwright/test');
-const { LoginPage } = require('../../pageobjects/LoginPage');
-const { RegisterPage } = require('../../pageobjects/RegisterPage');
-const { DashboardPage } = require('../../pageobjects/DashboardPage');
-const { CartPage } = require('../../pageobjects/CartPage');
-const { CheckoutPage } = require('../../pageobjects/CheckoutPage');
+const { test, expect } = require('../base/test.base');
 const testData = require('../../test-data/e2e-test-data.json');
 
 test.describe('E2E Shopping Tests', () => {
-    let loginPage;
-    let registerPage;
-    let dashboardPage;
-    let cartPage;
-    let checkoutPage;
-
-    test.beforeEach(async ({ page }) => {
-        // Initialize page objects
-        loginPage = new LoginPage(page);
-        registerPage = new RegisterPage(page);
-        dashboardPage = new DashboardPage(page);
-        cartPage = new CartPage(page);
-        checkoutPage = new CheckoutPage(page);
-    });    
-    test('Complete shopping flow with new user', async ({ page }) => {
+    test('Complete shopping flow with new user @e2e @smoke', async ({ page, pageObjects }) => {
+        const { loginPage, registerPage, dashboardPage, cartPage, checkoutPage } = pageObjects;
         const userData = testData.testUsers.defaultUser;
         const targetProduct = testData.products[0];
 
@@ -45,7 +27,10 @@ test.describe('E2E Shopping Tests', () => {
 
             await test.step('Product Selection', async () => {
                 const titles = await dashboardPage.getProductsList();
-                console.log(`Available products: ${titles.length}`);
+                test.info().annotations.push({
+                    type: 'Products Found',
+                    description: `${titles.length} products available`
+                });
                 await dashboardPage.addProductToCart(targetProduct.name);
                 await dashboardPage.navigateToCart();
             });
@@ -70,7 +55,6 @@ test.describe('E2E Shopping Tests', () => {
                     type: 'Order ID',
                     description: orderDetails.id
                 });
-                console.log(`Order placed successfully. ID: ${orderDetails.id}`);
             });
 
         } catch (error) {
